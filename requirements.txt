@@ -3,3 +3,4 @@ rasa==2.1.2
 PyMySQL
 Flask
 python-dateutil
+protobuf==3.14.0
