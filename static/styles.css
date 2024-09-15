@@ -1,0 +1,153 @@
+
+
+/* Keyframes for sliding animation */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Card base styles */
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+  background-color: #f3f4f6; /* Light gray background for non-selected state */
+}
+
+/* Hover effect for card */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for selected card */
+.card.selected {
+  background-color: #e0f7fa; /* Light blue background for selected state */
+  transform: scale(1.05); /* Slightly scale up the card */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow for selected card */
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Chatbot styling */
+#chatbot {
+  width: 500px; /* Default width */
+  height: 500px; /* Default height */
+  bottom: 80px; /* Distance from bottom */
+  right: 40px; /* Distance from right */
+  max-height: 80vh; /* Maximum height */
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out; /* Smooth height and width transition */
+}
+
+/* Chat area styling */
+#chat-area {
+  max-height: calc(100% - 80px); /* Adjust height for messages */
+  overflow-y: auto;
+  padding-right: 0; /* Remove padding to hide scrollbar */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  word-wrap: break-word;
+  padding-left: 15px; /* Padding to prevent message merging */
+  padding-right: 15px;
+}
+
+/* Custom animated scrollbar styling */
+#chat-area::-webkit-scrollbar {
+  width: 8px;
+}
+#chat-area::-webkit-scrollbar-track {
+  background: #f0f4f8; /* Light background for the track */
+  border-radius: 10px;
+}
+#chat-area::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #3b82f6, #60a5fa); /* Gradient for the thumb */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+/* Message styling */
+.message {
+  margin-bottom: 10px; /* Space between messages */
+}
+
+/* Custom margin for user message */
+.user-message {
+  margin-right: 16px; /* Space between message and right edge */
+  margin-bottom: 16px; /* Space between user and bot messages */
+}
+
+/* Custom margin for bot message */
+.bot-message {
+  margin-bottom: 16px; /* Space between bot and user messages */
+}
+
+/* Adjust message box margins */
+.message-box {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Disable input box resizing on small screens */
+#message-input {
+  resize: none;
+  flex-grow: 0;
+}
+
+/* Input box adjustment on smaller screens */
+@media (max-width: 768px) {
+  #message-input {
+    width: calc(100% - 80px); /* Leave space for send button */
+  }
+}
+
+/* Responsive adjustments for chatbot window and button */
+@media (max-width: 1024px) {
+  #chatbot {
+    width: 70vw; /* Adjust width to 70% of viewport width */
+    height: 60vh; /* Adjust height proportionally to 60% of viewport height */
+    right: 20px;
+    bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  #chatbot {
+    width: 90vw; /* Adjust width to 90% of viewport width */
+    height: 50vh; /* Adjust height proportionally to 50% of viewport height */
+    right: 10px;
+    bottom: 80px; /* Keep space above the button */
+    top: auto; /* Reset top margin on mobile devices */
+  }
+
+  #chatbot-btn {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  #chatbot {
+    width: 95vw; /* Adjust width to 95% of viewport width */
+    height: 45vh; /* Adjust height proportionally to 45% of viewport height */
+  }
+}
+/* Styling for the new ticket input boxes */
+#ticket .flex.flex-col.w-full.space-y-2 {
+  margin-bottom: 1rem;
+}
+
+#ticket .flex.space-x-4 {
+  margin-bottom: 1rem;
+}
+
+#ticket input[type="number"] {
+  width: 100%;
+}
+

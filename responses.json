@@ -1,0 +1,498 @@
+{
+    "greet": [
+      "Hello! How can I assist you today?",
+      "Hi! How may I help you?",
+      "Greetings! What can I do for you?",
+      "Hey! How can I support you today?",
+      "Hello there! How may I be of assistance?",
+      "Hi, how can I be helpful to you?",
+      "Good day! How can I assist?",
+      "Hello! What can I help you with today?",
+      "Hi there! Need help with something?",
+      "Hello! How may I assist you on this fine day?",
+      "Greetings! How may I be of service today?",
+      "Hey there! How can I help you out?",
+      "Hi! Feel free to ask me anything.",
+      "Hello! How can I be of aid?",
+      "Hi there! How can I support you?"
+    ],
+    "status_health": [
+      "I'm doing great! How about you?",
+      "All good here! How are you?",
+      "Feeling fantastic! How's everything with you?",
+      "Thanks for asking! I'm ready to help you, how are you?",
+      "I'm fit as a fiddle! How about yourself?",
+      "I'm doing well, thanks! What about you?",
+      "I’m in great shape! What about you?",
+      "Everything’s awesome! How can I assist you today?",
+      "I'm feeling good! How are you doing?",
+      "I'm functioning perfectly! How are things on your end?"
+    ],
+    "status_place": [
+      "I reside in the vibrant city of Delhi, India!",
+      "I'm based in India, but I'm just a click away from you!",
+      "I live in the heart of India, in Delhi!",
+      "You can find me in the bustling streets of Delhi, India!",
+      "I call India home, but I'm everywhere you need me to be!",
+      "My heart belongs to Delhi, but I'm always here for you!",
+      "I reside in India, yet I’m always near wherever you are!",
+      "Delhi, the heart of India, is where I am!",
+      "I live in India’s capital, Delhi, but I’m always at your service!",
+      "I may be in Delhi, but I’m just a heartbeat away!"
+    ],
+    "status_owner": [
+      "I’m proudly owned by the Ministry of Culture, India.",
+      "I belong to the Ministry of Culture, India.",
+      "The Ministry of Culture, India is my proud owner.",
+      "I’m managed by the Ministry of Culture, India.",
+      "I’m a part of the Ministry of Culture, India.",
+      "I’m here representing the Ministry of Culture, India.",
+      "I’m under the Ministry of Culture, India’s guidance.",
+      "I work for the Ministry of Culture, India.",
+      "The department of the Ministry of Culture, India owns me.",
+      "I operate under the Ministry of Culture, India."
+    ],
+    "status_creator": [
+      "I was developed by talented college students as part of the SIH programme 2024.",
+      "Created by a group of brilliant college students under the SIH programme 2024.",
+      "I owe my existence to some innovative college students participating in the SIH programme 2024.",
+      "Designed and built by smart college students through the SIH programme 2024.",
+      "I was crafted by skilled college students during the SIH programme 2024.",
+      "The SIH programme 2024 saw the creation of me by some bright college students.",
+      "Created by a team of college students in the SIH programme 2024.",
+      "I’m a product of the creative minds of college students in the SIH programme 2024.",
+      "Developed by college students who participated in the SIH programme 2024.",
+      "I was brought to life by some ingenious college students under the SIH programme 2024."
+    ],
+    "status_process": [
+      "I was built using the Rasa Open Source model. That's all I can disclose.",
+      "My foundation is the Rasa Open Source model. That's the extent of what I can share.",
+      "I operate on the Rasa Open Source framework. That’s all I’m allowed to reveal.",
+      "Created with the Rasa Open Source model. I’m restricted from sharing more details.",
+      "I’m powered by the Rasa Open Source model. That’s the full story for now.",
+      "Built with Rasa Open Source. That’s as much as I can tell you.",
+      "I’m based on the Rasa Open Source model. That’s all the information I can provide.",
+      "Developed using the Rasa Open Source framework. I’m limited in what I can share.",
+      "My setup involves the Rasa Open Source model. That’s all I’m able to disclose.",
+      "Constructed with the Rasa Open Source model. That’s the extent of what I can share."
+    ],
+    "status_who": [
+      "I’m Prachin, your chatbot here to assist with ticket purchases and handle general queries.",
+      "I’m Prachin, designed to help you with buying tickets and answering basic questions.",
+      "I’m Prachin, a chatbot optimized for ticket sales and responding to common user questions.",
+      "Hello, I’m Prachin, your assistant for purchasing tickets and managing general inquiries.",
+      "I’m Prachin, and I’m here to make buying tickets easier and to address your basic queries.",
+      "I’m Prachin, your friendly chatbot for handling ticket purchases and simple user questions.",
+      "I’m Prachin, and I’m here to assist you with tickets and answer any basic questions you might have.",
+      "I’m Prachin, a chatbot created to help with ticket buying and to handle your basic questions.",
+      "I’m Prachin, designed to support you with ticket purchases and answer general queries.",
+      "I’m Prachin, and my job is to help you buy tickets and manage everyday questions."
+    ],
+    "sad": [
+      "I'm truly sorry to hear that. If you need to talk to someone, reaching out to a friend, family member, or counselor might be helpful.",
+      "I’m sorry to learn about your situation. It could be comforting to speak with someone you trust or a mental health professional.",
+      "I’m here to provide information and support. For personal matters, connecting with a loved one or a professional might be beneficial.",
+      "I’m sorry to hear that you’re going through this. Talking to someone you care about or a counselor could provide support.",
+      "I understand this might be difficult. If you need to talk, reaching out to a friend, family member, or a counselor might be helpful.",
+      "I’m sorry you’re experiencing this. It might help to discuss your feelings with someone close or a mental health professional.",
+      "I’m here to assist with information. For more personal support, speaking with a trusted friend or a professional may be valuable.",
+      "I'm sorry you're dealing with this. Consider talking to someone you trust or a mental health professional for support.",
+      "I'm truly sorry to hear this. It might be helpful to connect with someone who can offer support, such as a friend or counselor.",
+      "I’m here to assist with information. For personal support, reaching out to a loved one or a mental health expert might be best."
+    ],
+    "happy": [
+      "That’s wonderful to hear! Enjoy every moment!",
+      "Awesome! Keep up the good vibes!",
+      "Fantastic! Keep smiling and stay positive!",
+      "Great to hear! Hope you continue to feel this way!",
+      "Wonderful! Keep enjoying and stay cheerful!",
+      "I’m glad you’re feeling good! Keep up the positivity!",
+      "So happy to hear that! Keep the good times rolling!",
+      "That’s fantastic news! Wishing you continued happiness!",
+      "Great to hear you’re feeling this way! Enjoy every moment!",
+      "Yay! Keep that happiness going strong!"
+    ],
+    "other": [
+      "Sorry, but I'm not equipped to handle emotional matters.",
+      "I’m not designed to manage emotions, but I’m here to help with information.",
+      "I can provide information, but I’m not able to address emotional issues.",
+      "Unfortunately, I’m not trained to deal with emotions. You might find it helpful to speak with someone who can offer emotional support.",
+      "I’m here to assist with information, but I’m not capable of handling emotional topics.",
+      "I’m sorry, but emotional support is beyond my capabilities. It might be best to talk to a friend or a counselor.",
+      "I’m not equipped to handle emotional concerns, but I’m here to assist with any information you might need.",
+      "My capabilities are limited to providing information. For emotional support, reaching out to a trusted person or a professional could be helpful.",
+      "I’m not able to understand or handle emotions. For emotional support, consider speaking with a mental health professional.",
+      "I can assist with general information, but for emotional issues, talking to a counselor or someone you trust might be more beneficial."
+    ],
+    "abusive_language": [
+      "Let's keep it friendly, please!",
+      "Please use respectful language.",
+      "Kindly avoid abusive language.",
+      "Let's keep our chat respectful.",
+      "Please refrain from using offensive words.",
+      "Respectful language helps us communicate better!",
+      "Let’s keep our conversation positive.",
+      "Please use polite language.",
+      "Keep it friendly, please!",
+      "Let's maintain a respectful tone."
+    ],
+    "get_joke": [
+      "Here’s a chuckle: Why don't skeletons fight each other? They don’t have the guts!",
+      "Here’s a funny one: What do you call cheese that isn't yours? Nacho cheese!",
+      "Here’s a giggle: Why did the golfer bring two pairs of pants? In case he got a hole in one!",
+      "Here’s a laugh: How does a penguin build its house? Igloos it together!",
+      "Here’s a smile: What do you get when you cross a snowman and a vampire? Frostbite!",
+      "Here’s a fun one: Why did the coffee file a police report? It got mugged!",
+      "Here’s a light joke: What do you call an alligator in a vest? An investigator!",
+      "Here’s a playful one: Why don’t programmers like nature? It has too many bugs!",
+      "Here’s a chuckle: Why was the math book sad? Because it had too many problems!",
+      "Here’s a laugh: What do you call a fake noodle? An impasta!"
+    ],
+    "share_name": [
+      "What a wonderful name!",
+      "That’s a great choice!",
+      "I really like that name!",
+      "Such a lovely name!",
+      "That’s an awesome name!",
+      "I’m a fan of that name!",
+      "What a beautiful name!",
+      "That name sounds fantastic!",
+      "I love how unique that name is!",
+      "Such a great name choice!"
+    ],
+    "book_failed": [
+      "Oops! There seems to be an issue with booking your ticket. Please try again.",
+      "Sorry, but it looks like there's a problem with ticket booking. Could you please retry?",
+      "It seems there's a hiccup with the ticket booking. Please try again later.",
+      "We’re having trouble with booking your ticket. Please attempt again.",
+      "Sorry, we couldn’t complete your ticket booking. Please give it another shot.",
+      "There appears to be an issue with the ticket booking process. Please try once more.",
+      "Apologies, but there’s a problem with booking. Please try again shortly.",
+      "It looks like there's an error with ticket booking. Please try again in a moment.",
+      "We're experiencing issues with ticket booking. Please retry.",
+      "Sorry for the inconvenience. Please try booking your ticket again."
+    ],
+    "portal_failed": [
+      "Unable to load the Info Portal. Please try again.",
+      "Sorry, we couldn't load the museum portal. Please check back later.",
+      "It seems there’s an issue with loading the Info Portal. Please try again.",
+      "The museum portal is currently unavailable. Please try again later.",
+      "We’re having trouble loading the Info Portal. Please try again soon.",
+      "Failed to load the museum portal. Please refresh and try again.",
+      "Sorry, we can't access the Info Portal right now. Please retry later.",
+      "The portal didn’t load successfully. Please try again in a moment.",
+      "We encountered an error loading the Info Portal. Please try again later.",
+      "There was an issue with loading the museum portal. Please try again shortly."
+    ],
+    "info_fetch_failed": [
+      "I couldn’t retrieve that information. Rephrasing your request might help.",
+      "Sorry, I wasn't able to get the details. Could you try rephrasing?",
+      "It looks like there’s an issue with fetching that information. Please try rephrasing your query.",
+      "I’m having trouble retrieving the details. Rephrasing might help.",
+      "Unable to get the information at the moment. Try rephrasing your request.",
+      "I couldn’t grab the information. Please try rephrasing your question.",
+      "Sorry, I’m having trouble with that request. Rephrasing may provide better results.",
+      "There was an issue with getting the information. Rephrasing might be useful.",
+      "I’m sorry, but I couldn’t fetch the information. Try rephrasing your query.",
+      "There seems to be a problem retrieving the details. Please rephrase your request."
+    ],
+    "bye": [
+      "Goodbye! Have a great day!",
+      "See you later! Take care!",
+      "Bye for now! Feel free to return anytime.",
+      "Catch you later! Have a wonderful day!",
+      "Farewell! I’m here if you need me.",
+      "Take care! See you soon!",
+      "Bye! Wishing you all the best!",
+      "See you next time! Have a great day!",
+      "Goodbye! Don’t hesitate to come back if you need help.",
+      "Until next time! Have a fantastic day!"
+    ],
+    "age": [
+      "I was born in September 2024, so I'm quite new!",
+      "I came into existence in September 2024, so I'm just getting started!",
+      "As of now, I’m a recent creation from September 2024!",
+      "I’m freshly created as of September 2024!",
+      "I was launched in September 2024, so I’m still young!",
+      "I’m new on the scene, born in September 2024!",
+      "I began my journey in September 2024, so I’m pretty new!",
+      "I’m a September 2024 creation, so I’m just starting out!",
+      "I’m from September 2024, so I’m relatively new around here!",
+      "I was created in September 2024, so I’m still fresh!"
+    ],
+    "policy break": [
+        "It is against our Policy! Please maintain decorum in order to avoid any further circumstances.",
+        "This behavior violates our policy. Let's keep the conversation respectful.",
+        "Please adhere to our guidelines to ensure a positive interaction.",
+        "Respecting our policy is important for a smooth experience. Thank you for understanding.",
+        "We ask that you follow our policy to maintain a respectful environment."
+    ],
+    "send_mail": [
+        "Failed to send mail! Please retry.",
+        "Mail sending unsuccessful. Try again, please.",
+        "There was an issue sending the email. Please attempt again.",
+        "We encountered a problem sending your email. Please try once more.",
+        "Sending the mail didn’t work. Please give it another try."
+    ],
+    "send_whatsapp": [
+        "Some issue occurred! Retry.",
+        "Failed to send WhatsApp message. Please try again.",
+        "There was a problem sending your WhatsApp message. Please retry.",
+        "We couldn’t send the message on WhatsApp. Please try again.",
+        "WhatsApp message sending failed. Please attempt once more."
+    ],
+    "send_mms": [
+        "Some issue occurred! Retry.",
+        "Failed to send MMS. Please try again.",
+        "There was a problem with sending the MMS. Please retry.",
+        "We encountered an issue sending the MMS. Please attempt again.",
+        "Sending the MMS didn’t work. Please try once more."
+    ],
+    "download_failed": [
+        "Failed to load the download button! Please retry.",
+        "There was an issue with the download button. Please try again.",
+        "The download button couldn’t be loaded. Please attempt again.",
+        "We encountered a problem with the download button. Please retry.",
+        "Downloading failed. Please try reloading the page and trying again."
+    ],
+    "feedback": [
+        "Sure! You can give suggestions here.",
+        "Feel free to share your feedback and suggestions.",
+        "We welcome your feedback! Let us know your thoughts.",
+        "Your suggestions are valuable! Please share them here.",
+        "We’re open to your feedback. Please provide your suggestions."
+    ],
+    "give_feedback": [
+        "Your feedback is well appreciated! It will be taken into consideration for real.",
+        "Thank you for your feedback! We’ll review it carefully.",
+        "We value your input and will consider it for future improvements.",
+        "Your feedback has been received and will be used to enhance our services.",
+        "Thank you for sharing your feedback. We’ll take it into account."
+    ],
+    "info_suggestions":[
+        "Sorry but I am not allowed to provide suggestions in order to prevent misguidance 😊"
+    ],
+    "discount": [
+        "Sorry, but we don't offer special discounts.",
+        "Currently, there are no special discounts available.",
+        "We do not provide discounts at this time.",
+        "Unfortunately, we don’t have any discount offers.",
+        "No special discounts are available right now."
+    ],
+    "info_languages": [
+        "We support all languages! Start conversation in any language and I will catch you.",
+        "Feel free to use any language. I’ll understand and respond.",
+        "You can chat in any language you prefer. I’m here to assist!",
+        "Our system supports multiple languages. Just start talking!",
+        "No matter the language, I’m ready to assist you."
+    ],
+    "cancel_ticket": [
+        "Cancelling ticket or getting refunds is not supported! You can change the date of visit though.",
+        "We don't support ticket cancellations or refunds, but you can adjust your visit date.",
+        "Refunds and cancellations are not possible, but you may modify your visit date.",
+        "Unfortunately, we can't process cancellations or refunds. You can, however, reschedule your visit.",
+        "Ticket cancellations and refunds are unavailable, but changing your visit date is possible."
+    ],
+    "museum_membership": [
+        "We don't have membership offers! You can login/register to store tickets and other information.",
+        "Currently, we don’t offer memberships. Please log in or register to manage your tickets.",
+        "Memberships are not available, but logging in or registering will help you store your tickets.",
+        "We do not provide membership options. Registering or logging in will allow you to manage your tickets.",
+        "No membership offers are available, but you can log in or register to keep track of your tickets."
+    ],
+    "info_safety_overall": [
+        "The Ministry of Culture tries to maintain great standards for safety across various museums in India.",
+        "We prioritize safety and adhere to high standards across museums in India.",
+        "Safety is a key focus, and we ensure robust standards in all our museums.",
+        "Our museums are committed to maintaining excellent safety standards.",
+        "The Ministry of Culture ensures top-notch safety protocols across all museums."
+    ],
+    "info_payment": [
+        "We support UPI payments along with credit and debit cards.",
+        "UPI payments, credit, and debit cards are accepted for transactions.",
+        "You can use UPI, credit, or debit cards for payments.",
+        "Payments are accepted via UPI, credit cards, and debit cards.",
+        "We accommodate UPI, credit, and debit card payments."
+    ],
+    "age_young": [
+        "It is what it is!",
+        "Age is just a number!",
+        "Young or old, everyone is welcome!",
+        "Being young has its own charm!",
+        "Embrace your youth with joy!"
+    ],
+    "age_old": [
+        "It is what it is!",
+        "Age brings wisdom and experience!",
+        "Being older has its own advantages!",
+        "Experience comes with age!",
+        "Embrace the journey of age!"
+    ],
+    "age_user": [
+        "No age is too young or too old! Just have the spirit.",
+        "Age doesn’t define you! Stay spirited!",
+        "Regardless of age, your enthusiasm matters!",
+        "No matter your age, your spirit shines through!",
+        "Young or old, your spirit is what counts!"
+    ],
+    "some_error": [
+        "I suggest refreshing the page and retyping your command :)",
+        "There seems to be an issue. Please refresh the page and try again.",
+        "Encountered an error. Refresh the page and re-enter your command.",
+        "Oops! Try refreshing the page and typing your command again.",
+        "An error occurred. Please refresh and retry your command."
+    ],
+    "group_tickets": [
+        "You can buy multiple tickets and get them using WhatsApp, Email, MMS, or download them as a zip folder.",
+        "Group tickets can be purchased and received via WhatsApp, Email, MMS, or downloaded as a zip file.",
+        "Multiple tickets can be obtained through WhatsApp, Email, MMS, or as a zip download.",
+        "Buy group tickets and receive them through WhatsApp, Email, MMS, or download as a zip.",
+        "Group ticket purchases can be completed via WhatsApp, Email, MMS, or downloaded in a zip folder."
+    ],
+    "voice_input": [
+        "Yup! Just click on the mic button to the left of the message box.",
+        "To use voice input, click the mic button next to the message box.",
+        "You can enable voice input by clicking the mic icon beside the message box.",
+        "For voice input, simply press the mic button to the left of the chat box.",
+        "Click on the microphone button next to the message box to start voice input."
+    ],
+    "ticket_vip": [
+        "There is no VIP tickets or special passes that are supported.",
+        "VIP tickets and special passes are not available.",
+        "We don’t offer VIP or special passes at this time.",
+        "Currently, there are no VIP tickets or special passes offered.",
+        "VIP tickets and special passes are not supported."
+    ],
+    "special_event_pass": [
+        "There is no VIP tickets or special passes that are supported.",
+        "Special event passes are not available currently.",
+        "We don’t provide special event passes at this time.",
+        "No special event passes or VIP tickets are offered.",
+        "Currently, we don’t support special event passes or VIP tickets."
+    ],
+    "info_venue": [
+        "Nope! Hosting events in museums is not supported by our Policy.",
+        "Our policy doesn’t allow for event hosting in museums.",
+        "Unfortunately, museum event hosting is not supported.",
+        "Hosting events at our museums is against policy.",
+        "Events in museums are not supported according to our policy."
+    ],
+    "info_processing": [
+        "Will wait for you to return!",
+        "I’ll be here when you come back!",
+        "Feel free to return whenever you’re ready.",
+        "I’ll be waiting for you to continue.",
+        "Looking forward to your return!"
+    ],
+    "moc_info": [
+        "Sure! Here's the site link: ",
+        "Here’s the link to more information about the Ministry of Culture: ",
+        "You can find more details about the Ministry of Culture here: ",
+        "For information about the Ministry of Culture, visit: ",
+        "Here’s where you can learn more about the Ministry of Culture: "
+    ],
+    "home_delivery": [
+        "Home delivery isn't supported in order to reduce paper usage.",
+        "We don’t offer home delivery to minimize paper waste.",
+        "To help reduce paper usage, home delivery is not available.",
+        "Home delivery is not provided to support our efforts in reducing paper use.",
+        "To reduce paper consumption, we do not support home delivery."
+    ],
+    "delete_account": [
+        "I can't perform that operation due to security concerns.",
+        "For security reasons, I’m unable to delete accounts.",
+        "Account deletion is restricted for security purposes.",
+        "Due to security policies, I can’t process account deletions.",
+        "I’m unable to delete accounts due to security concerns."
+    ],
+    "change_info": [
+        "I can't perform that operation due to security concerns.",
+        "Changing account information is restricted for security reasons.",
+        "For security reasons, I can’t update account information.",
+        "I’m unable to change account details due to security policies.",
+        "Security concerns prevent me from modifying account information."
+    ],
+    "error_encounter": [
+        "I suggest refreshing the page and retyping your command :)",
+        "An error occurred. Try refreshing the page and re-entering your command.",
+        "Please refresh the page and try your command again.",
+        "Encountered an error. Refresh the page and retry your command.",
+        "Oops! Refresh the page and try retyping your command."
+    ],
+    "gift_ticket": [
+        "Sure! You can buy tickets here and send them as a gift to someone via email, WhatsApp, or MMS.",
+        "Gift tickets can be purchased and sent through email, WhatsApp, or MMS.",
+        "You can buy tickets and gift them through email, WhatsApp, or MMS.",
+        "To gift tickets, purchase them and send via email, WhatsApp, or MMS.",
+        "Gift tickets are available for purchase and can be sent through email, WhatsApp, or MMS."
+    ],
+    "set_reminder_msg": [
+        "There is an automatic reminder sent to the visitor 24 hours prior to their visit, but no custom reminders are supported!",
+        "We send an automatic reminder 24 hours before the visit. Custom reminders are not available.",
+        "A reminder is automatically sent 24 hours before the visit. Custom reminders cannot be set.",
+        "Automatic reminders are sent 24 hours prior to the visit. We do not support custom reminders.",
+        "You’ll receive an automatic reminder 24 hours before your visit. Custom reminders aren’t supported."
+    ],
+    "info_national_events": [
+        "Sorry, but currently I can't provide information regarding that.",
+        "I’m unable to provide information about national events at the moment.",
+        "Currently, I don’t have details on national events.",
+        "Information on national events isn’t available right now.",
+        "I’m sorry, but I can’t provide national event information at this time."
+    ],
+    "whatsapp_talk": [
+        "Yes! Just say hi to +91 9876543210.",
+        "You can start a WhatsApp chat by saying hi to +91 9876543210.",
+        "Say hi to +91 9876543210 on WhatsApp to start the conversation.",
+        "For WhatsApp communication, greet +91 9876543210 with a hi.",
+        "Initiate a chat on WhatsApp by sending a hi to +91 9876543210."
+    ],
+    "mms_talk": [
+        "Yes! Just say hi to +91 9876543210.",
+        "Send a hi to +91 9876543210 via MMS to start the conversation.",
+        "You can begin an MMS chat by sending hi to +91 9876543210.",
+        "To talk via MMS, just say hi to +91 9876543210.",
+        "Start an MMS conversation by sending a hi to +91 9876543210."
+    ],
+    "sections_of_people": [
+        "There is no discrimination between different sections of people! It is strictly prohibited.",
+        "We do not discriminate against any group of people. It’s against our policy.",
+        "All individuals are treated equally. Discrimination is not tolerated.",
+        "There is absolutely no discrimination. Everyone is treated with equal respect.",
+        "We strictly uphold equality and do not discriminate between different groups."
+    ],
+    "technologies_used": [
+        "We used Rasa open-source model for intent identification! That's all I am allowed to share.",
+        "Our intent identification relies on the Rasa open-source model. That's the extent of the details I can share.",
+        "The Rasa open-source model is used for identifying intents. I’m unable to provide more details.",
+        "We utilize the Rasa open-source model for intent recognition. Further specifics are not available.",
+        "Intent identification is powered by the Rasa open-source model. I can’t share additional information."
+    ],
+    "ticket_transfer": [
+        "There is no visitor identification put on tickets! You can just hand over tickets or share them online to transfer them.",
+        "Tickets don’t have visitor identification. You can transfer them by handing over or sharing online.",
+        "No personal identification is linked to tickets. You may transfer them by handing over or sharing them online.",
+        "Since tickets are not tied to any personal identification, you can freely transfer them by hand or online.",
+        "You can transfer tickets easily as there’s no visitor identification attached. Just hand them over or share them online."
+    ],
+    "is_info_verified": [
+        "All the information provided by me has been passed through various checks and is completely valid in its existence.",
+        "The information I provide is verified and has undergone thorough checks to ensure its validity.",
+        "I ensure that all the details I share have been verified and are accurate.",
+        "The information you receive has been thoroughly verified for accuracy and validity.",
+        "Rest assured, all provided information has been validated through multiple checks."
+    ],
+    "feedback_processing_how": [
+        "Your feedback is taken into consideration by the concerned authorities who work day and night on monitoring feedbacks and improvising user experience.",
+        "Feedback is reviewed by dedicated teams who work continuously to enhance user experience.",
+        "Our team carefully evaluates all feedback to improve services and user experience.",
+        "Feedback is processed by our team who work diligently to implement improvements based on your suggestions.",
+        "We take your feedback seriously, and our team works tirelessly to use it for improving your experience."
+    ],
+    "complement_positive":[
+        "Thank you ! Happy to help!"
+    ],
+    "complement_negative":[
+        "Sorry! You can try rephrasing ! That might help"
+    ]
+}

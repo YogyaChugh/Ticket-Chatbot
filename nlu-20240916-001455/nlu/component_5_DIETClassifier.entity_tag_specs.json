@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-city",
+      "2": "I-city",
+      "3": "L-city",
+      "4": "U-city",
+      "5": "B-date",
+      "6": "I-date",
+      "7": "L-date",
+      "8": "U-date",
+      "9": "B-museum",
+      "10": "I-museum",
+      "11": "L-museum",
+      "12": "U-museum",
+      "13": "B-museum_type",
+      "14": "I-museum_type",
+      "15": "L-museum_type",
+      "16": "U-museum_type",
+      "17": "B-no_of_tickets",
+      "18": "I-no_of_tickets",
+      "19": "L-no_of_tickets",
+      "20": "U-no_of_tickets",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-city": 1,
+      "I-city": 2,
+      "L-city": 3,
+      "U-city": 4,
+      "B-date": 5,
+      "I-date": 6,
+      "L-date": 7,
+      "U-date": 8,
+      "B-museum": 9,
+      "I-museum": 10,
+      "L-museum": 11,
+      "U-museum": 12,
+      "B-museum_type": 13,
+      "I-museum_type": 14,
+      "L-museum_type": 15,
+      "U-museum_type": 16,
+      "B-no_of_tickets": 17,
+      "I-no_of_tickets": 18,
+      "L-no_of_tickets": 19,
+      "U-no_of_tickets": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

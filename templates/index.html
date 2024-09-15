@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ministry of Culture</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+  <script src="{{url_for('static',filename='script.js')}}" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans flex items-center justify-center min-h-screen p-4">
+
+  <!-- Chatbot Button -->
+  <button id="chatbot-btn" class="fixed bottom-4 right-4 bg-gradient-to-r from-blue-300 to-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-400 transition duration-300 z-50">
+    <img src="{{url_for('static',filename='images/chatbot.png')}}" height="30" width="30">
+  </button>
+
+  <!-- Chatbot Popup -->
+  <div id="chatbot" class="fixed bottom-20 right-16 w-[400px] mb-9 h-[600px] bg-gradient-to-r from-white to-blue-50 shadow-lg rounded-lg hidden transition-transform transform scale-90 ease-in-out z-50">
+    <div class="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-4 rounded-t-lg flex items-center justify-between">
+      <h3 class="text-2xl font-bold flex items-center space-x-2">
+        <span>📜</span>
+        <span>Prachin</span>
+      </h3>
+      <button id="close-chatbot" class="text-white bg-blue-600 hover:bg-blue-700 p-2 text-xl rounded-full transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none">
+        ❌
+      </button>
+    </div>
+
+    <!-- Chat Area -->
+    <div id="chat-area" class="p-4 h-[calc(100%-80px)] overflow-y-auto">
+      <!-- Bot Message -->
+      <div id="initial-bot-message" class="flex items-start space-x-2 mb-4 bot-message message-box">
+        <div class="w-12 h-12 rounded-full bg-blue-400 text-white flex justify-center items-center text-2xl">🏛️</div>
+        <div class="bg-blue-100 p-4 rounded-xl shadow-lg max-w-xs text-blue-800">
+          <p>Welcome! How can I assist you today?</p>
+        </div>
+      </div>
+      <!-- Debugger Toggle Box -->
+<div class="fixed bottom-4 right-4 bg-white p-3 rounded-lg shadow-lg flex items-center space-x-2">
+  
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked onclick="set_debugging()">
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Debugger</span>
+</label>
+
+</div>
+
+    </div>
+    
+
+    <!-- Input Area -->
+    <div class="bg-blue-50 p-4 flex items-center space-x-4">
+      <input 
+        id="message-input" 
+        type="text" 
+        placeholder="Type your message..." 
+        class="w-full border border-blue-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform transform duration-300 ease-in-out"
+        onkeypress="handleEnter(event)">
+      <button 
+        id="send-btn" 
+        class="bg-gradient-to-r from-blue-300 to-blue-500 text-white p-3 rounded-full hover:bg-blue-400 transition duration-300 ease-in-out transform hover:scale-110 shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Ticket Form -->
+  <div class="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden p-4" id="ticket" style="display:none">
+    <!-- Header -->
+    <div class="border-b border-gray-200 bg-gray-50 mb-4">
+      <h2 class="text-2xl font-bold text-center py-2">Book Your Tickets</h2>
+    </div>
+    
+    <!-- Form -->
+    <form class="space-y-4">
+      <!-- Ticket Details -->
+      <div class="flex flex-col space-y-2">
+        <label class="text-lg font-semibold">Ticket Details:</label>
+        <div class="flex space-x-4">
+          <div class="flex flex-col w-full space-y-2">
+            <label for="adult-tickets" class="text-sm font-semibold">Adult Tickets:</label>
+            <input id="adult-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of adult tickets">
+          </div>
+          <div class="flex flex-col w-full space-y-2">
+            <label for="child-tickets" class="text-sm font-semibold">Child Tickets:</label>
+            <input id="child-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of child tickets">
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <div class="flex flex-col w-full space-y-2">
+            <label for="foreigner-tickets" class="text-sm font-semibold">Foreigner Tickets:</label>
+            <input id="foreigner-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of foreigner tickets">
+          </div>
+          <div class="flex flex-col w-full space-y-2">
+            <label for="foreigner-child-tickets" class="text-sm font-semibold">Foreigner Child Tickets:</label>
+            <input id="foreigner-child-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of foreigner child tickets">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Museum Selection -->
+      <div class="relative">
+        <label class="text-lg font-semibold">Select Museum:</label>
+        <div class="overflow-x-auto no-scrollbar flex space-x-3 py-4">
+          <!-- Museum Cards -->
+           {% for i in result %}
+              <div class="card w-64 h-40 bg-gray-200 rounded-lg p-3 flex-shrink-0 cursor-pointer" onclick='selectMuseum("{{i['name']}}")'>
+                <h3 class="text-lg font-bold mb-2">{{i['name']|title}}</h3>
+                <p class="text-gray-700 text-sm">{{i['type']|title}} Museum</p>
+              </div>
+           {% endfor %}
+        </div>
+      </div>
+      
+      <!-- Date of Visit -->
+      <div id="visit-date-container" class="flex flex-col space-y-2" style="display:none;">
+        <label for="visit-date" class="text-lg font-semibold">Date of Visit:</label>
+        <input id="visit-date" type="date" min="{{date1}}" max="{{date2}}" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button onclick="tuggler()" type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" id="book-now-btn" disabled>
+          <span id="botton_text" class="block">Book Now</span>
+          <div id="botton_loader" class="w-8 h-8 border-4 border-t-4 border-black-500 border-solid rounded-full border-t-transparent animate-spin hidden"></div>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg" id="set" style="display:none">
+    <h2 class="text-2xl font-bold text-center mb-6">Adjust Settings</h2>
+
+    <!-- Range Sliders -->
+    <div class="mb-4">
+      <label for="range1" class="block text-lg font-semibold mb-2">Volume:</label>
+      <input id="range1" type="range" min="0" max="100" value="50" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer">
+    </div>
+    <div class="mb-4">
+      <label for="range2" class="block text-lg font-semibold mb-2">Brightness:</label>
+      <input id="range2" type="range" min="0" max="100" value="50" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer">
+    </div>
+    <div class="mb-6">
+      <label for="range3" class="block text-lg font-semibold mb-2">Contrast:</label>
+      <input id="range3" type="range" min="0" max="100" value="50" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer">
+    </div>
+
+    <!-- Proceed Button -->
+    <div class="text-center">
+      <button 
+        class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+        Proceed
+      </button>
+    </div>
+  </div>
+  
+</body>
+</html>
