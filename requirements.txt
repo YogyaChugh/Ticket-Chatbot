@@ -1,6 +1,6 @@
+protobuf==3.14.0
 tensorflow==2.3.4
 rasa==2.1.2
 PyMySQL
 Flask
 python-dateutil
-protobuf==3.14.0
