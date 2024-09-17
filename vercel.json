@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app2.py",
+      "use": "@vercel/python",
+      "config": {
+        "installCommand": "curl -s https://pyenv.run | bash && export PATH=\"$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH\" && pyenv install 3.9.10 && pyenv global 3.9.10 && pip install -r requirements.txt"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app2.py"
+    }
+  ]
+}
