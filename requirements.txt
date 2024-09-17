@@ -1,5 +1,5 @@
 protobuf
 tensorflow
-rasa==2.1.2
+rasa>=2.8.10
 PyMySQL
 Flask
