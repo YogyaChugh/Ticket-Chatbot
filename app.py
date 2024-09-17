@@ -30,7 +30,7 @@ global debugging_option
 debugging_option = True
 
 # Load Rasa NLU model
-interpreter = Interpreter.load("nlu-20240916-001455\\nlu")
+interpreter = Interpreter.load("nlu-20240916-001455//nlu")
 
 app = Flask(__name__)
 app.secret_key = 'Bro life is good'
