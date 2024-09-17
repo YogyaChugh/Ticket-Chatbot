@@ -30,7 +30,7 @@ global debugging_option
 debugging_option = True
 
 # Load Rasa NLU model
-interpreter = Interpreter.load("nlu-20240916-001455//nlu")
+interpreter = Interpreter.load("nlu-20240916-001455\\nlu")
 
 app = Flask(__name__)
 app.secret_key = 'Bro life is good'
@@ -53,6 +53,28 @@ def index():
             ticket_list = [i['ticket_price_adult'], i['ticket_price_child'], i['ticket_price_foreigner'], i['ticket_price_foreigner_child']]
     return render_template('index.html', result=result, date1=today, date2=new_date, ticket_list=ticket_list)
 
+@app.route('/get-closed-dates/<museum_name>', methods=['GET'])
+def get_closed_dates(museum_name):
+    try:
+        museum_name = museum_name.lower()
+        cursor.execute("SELECT closed FROM city_museum WHERE name = %s", (museum_name,))
+        result = cursor.fetchone()
+        
+        if result:
+            closed_dates = result['closed']  # Ensure this is a list or a JSON-serializable format
+            if isinstance(closed_dates, str):
+                closed_dates = json.loads(closed_dates)  # Convert string to list if needed
+            print(f"Closed dates fetched: {closed_dates}")  # Debugging line
+            return jsonify({'closed_dates': closed_dates})
+        else:
+            return jsonify({'closed_dates': []}), 404
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
+    
+    finally:
+        if 'connection' in locals() and connection.open:
+            connection.close()
 @app.route('/debugger_on', methods=['GET','POST'])
 def debugger_on():
     global debugging_option

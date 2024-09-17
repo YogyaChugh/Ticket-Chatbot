@@ -1,4 +1,28 @@
-// Function to toggle text and loader visibility
+
+const chatArea = document.getElementById('chat-area');
+const messageInput = document.getElementById('message-input');
+const chatbot = document.getElementById('chatbot');
+const chatbotBtn = document.getElementById('chatbot-btn');
+const closeChatbotBtn = document.getElementById('close-chatbot');
+const ticketForm = document.querySelector('#ticket form');
+const bookNowBtn = document.querySelector('#book-now-btn');
+const museumCards = document.querySelectorAll('#ticket .card');
+const ticketTypeContainer = document.getElementById('ticket-type-container');
+const visitDateContainer = document.getElementById('visit-date-container');
+
+// Ensure all elements are found before adding event listeners
+if (chatbotBtn) {
+  chatbotBtn.addEventListener('click', toggleChatbotVisibility);
+} else {
+  console.error('Chatbot button not found');
+}
+
+if (closeChatbotBtn) {
+  closeChatbotBtn.addEventListener('click', () => {
+    chatbot.classList.add('hidden');
+    chatbot.classList.remove('visible');
+  });
+}// Function to toggle text and loader visibility
 function set_debugging(){
   fetch("/debugger_on", {
     method: 'POST'  // Ensure this matches the Flask route method
@@ -11,6 +35,24 @@ function set_debugging(){
     console.error('Error calling Flask route:', error);
   });
 }
+
+// Function to filter museum cards based on search input
+function filterCards() {
+  const searchInput = document.getElementById('search').value.toLowerCase();
+  const museumCards = document.querySelectorAll('#museum-cards .card');
+  
+  museumCards.forEach(card => {
+    const museumName = card.dataset.name.toLowerCase();
+    if (museumName.includes(searchInput)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+
+// Function to toggle the visibility of the "Book Now" button and loader
 function tuggler() {
   console.log('Toggler function called');  // Debugging line
   const textElement = document.getElementById('botton_text');
@@ -56,31 +98,6 @@ function toggleChatbotVisibility() {
   adjustChatbotSize();
 }
 
-const chatArea = document.getElementById('chat-area');
-const messageInput = document.getElementById('message-input');
-const chatbot = document.getElementById('chatbot');
-const chatbotBtn = document.getElementById('chatbot-btn');
-const closeChatbotBtn = document.getElementById('close-chatbot');
-const ticketForm = document.querySelector('#ticket form');
-const bookNowBtn = document.querySelector('#book-now-btn');
-const museumCards = document.querySelectorAll('#ticket .card');
-const ticketTypeContainer = document.getElementById('ticket-type-container');
-const visitDateContainer = document.getElementById('visit-date-container');
-
-// Ensure all elements are found before adding event listeners
-if (chatbotBtn) {
-  chatbotBtn.addEventListener('click', toggleChatbotVisibility);
-} else {
-  console.error('Chatbot button not found');
-}
-
-if (closeChatbotBtn) {
-  closeChatbotBtn.addEventListener('click', () => {
-    chatbot.classList.add('hidden');
-    chatbot.classList.remove('visible');
-  });
-}
-
 // Function to handle the "Enter" key to send a message
 function handleEnter(event) {
   if (event.key === 'Enter') {
@@ -90,15 +107,11 @@ function handleEnter(event) {
 
 // Function to handle form interactions
 function handleFormInteraction() {
-  const museumSelected = document.querySelector('input[name="museum"]');
-  const adultTickets = document.getElementById('adult-tickets').value.trim();
-  const childTickets = document.getElementById('child-tickets').value.trim();
-  const foreignerTickets = document.getElementById('foreigner-tickets').value.trim();
-  const foreignerChildTickets = document.getElementById('foreigner-child-tickets').value.trim();
-  const visitDate = document.getElementById('visit-date').value;
-
-  bookNowBtn.disabled = !(museumSelected && adultTickets && childTickets && foreignerTickets && foreignerChildTickets && visitDate);
+  const museumSelected = document.querySelector('input[name="museum"]');  // Check for 'museum' input instead
+  console.log('Museum selected:', museumSelected ? museumSelected.value : 'None');
+  bookNowBtn.disabled = !museumSelected;  // Enable button if a museum is selected
 }
+
 
 // Function to handle museum selection
 function selectMuseum(museumName) {
@@ -124,9 +137,7 @@ function selectMuseum(museumName) {
       console.error('Error calling Flask route:', error);
     });
 
-    // Show ticket type and date selectors
-    visitDateContainer.style.display = 'flex';
-
+    // Show ticket type and date selector
     handleFormInteraction();
   }
 }
@@ -135,9 +146,8 @@ function selectMuseum(museumName) {
 function resetForm() {
   ticketForm.reset();
   bookNowBtn.disabled = true;
-  document.querySelectorAll('input[name="museum"]').forEach(input => input.remove());
+  document.querySelectorAll('input[name="museum-cards"]').forEach(input => input.remove());
   museumCards.forEach(card => card.classList.remove('selected'));
-  visitDateContainer.style.display = 'none';
 }
 
 // Function to send a message
@@ -221,12 +231,15 @@ museumCards.forEach(card => {
 // Form submission handler
 ticketForm.addEventListener('submit', function(event) {
   event.preventDefault();
-  const formData = new FormData(this);
-  formData.append('adult-tickets', document.getElementById('adult-tickets').value.trim());
-  formData.append('child-tickets', document.getElementById('child-tickets').value.trim());
-  formData.append('foreigner-tickets', document.getElementById('foreigner-tickets').value.trim());
-  formData.append('foreigner-child-tickets', document.getElementById('foreigner-child-tickets').value.trim());
+  const selectedMuseum = document.querySelector('input[name="museum"]');
+  
+  // Create a new FormData object and append only the selected museum name
+  const formData = new FormData();
+  if (selectedMuseum) {
+    formData.append('museum', selectedMuseum.value);
+  }
 
+  // Fetch request to submit the form with only the selected museum
   fetch('/ticketbook', {
     method: 'POST',
     body: formData
@@ -242,3 +255,80 @@ ticketForm.addEventListener('submit', function(event) {
 
 // Function to handle the "Enter" key to send a message
 messageInput.addEventListener('keypress', handleEnter);
+document.addEventListener('DOMContentLoaded', () => {
+  const visitDateInput = document.getElementById('visit-date');
+
+  // Initialize Flatpickr with custom options
+  const calendar = flatpickr(visitDateInput, {
+    dateFormat: 'Y-m-d',
+    minDate: 'today', // Disable past dates
+    onOpen: updateDisabledDates, // Update disabled dates on calendar open
+    onChange: updateDisabledDates, // Update disabled dates on date change
+  });
+
+  // Function to dynamically disable dates
+  function updateDisabledDates() {
+    const museumName = encodeURIComponent(document.querySelector('input[name="museum"]').value);
+    
+    fetch(`/get-closed-dates/${museumName}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log('Data received from server:', data);  // Debugging line
+        
+        const closedDates = data.closed_dates;
+  
+        if (Array.isArray(closedDates)) {
+          const validDates = closedDates.map(dayName => {
+            const today = new Date();
+            let dateObj;
+            
+            switch(dayName.toLowerCase()) {
+              case 'monday':
+                dateObj = new Date(today.setDate(today.getDate() + (1 + 7 - today.getDay()) % 7));  // Next Monday
+                break;
+              case 'tuesday':
+                dateObj = new Date(today.setDate(today.getDate() + (2 + 7 - today.getDay()) % 7));  // Next Tuesday
+                break;
+              case 'wednesday':
+                dateObj = new Date(today.setDate(today.getDate() + (3 + 7 - today.getDay()) % 7));  // Next Wednesday
+                break;
+              case 'thursday':
+                dateObj = new Date(today.setDate(today.getDate() + (4 + 7 - today.getDay()) % 7));  // Next Thursday
+                break;
+              case 'friday':
+                dateObj = new Date(today.setDate(today.getDate() + (5 + 7 - today.getDay()) % 7));  // Next Friday
+                break;
+              case 'saturday':
+                dateObj = new Date(today.setDate(today.getDate() + (6 + 7 - today.getDay()) % 7));  // Next Saturday
+                break;
+              case 'sunday':
+                dateObj = new Date(today.setDate(today.getDate() + (7 - today.getDay()) % 7));  // Next Sunday
+                break;
+              default:
+                console.error('Invalid day string:', dayName);
+                dateObj = null;
+            }
+  
+            return dateObj && !isNaN(dateObj.getTime()) ? dateObj.toISOString().split('T')[0] : null;
+          }).filter(date => date !== null);  // Remove invalid dates
+          
+          console.log('Closed dates processed:', validDates);  // Debugging line
+  
+          if (validDates.length > 0) {
+            flatpickr("#visit-date", {
+              disable: validDates
+            });
+          }
+        } else {
+          console.error('Expected closed_dates to be an array, but got:', closedDates);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching closed dates:', error);
+      });
+  }
+  
+  
+  
+});
+

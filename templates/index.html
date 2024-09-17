@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ministry of Culture</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
   <script src="{{url_for('static',filename='script.js')}}" defer></script>
@@ -77,51 +79,50 @@
     
     <!-- Form -->
     <form class="space-y-4">
-      <!-- Ticket Details -->
-      <div class="flex flex-col space-y-2">
-        <label class="text-lg font-semibold">Ticket Details:</label>
-        <div class="flex space-x-4">
-          <div class="flex flex-col w-full space-y-2">
-            <label for="adult-tickets" class="text-sm font-semibold">Adult Tickets:</label>
-            <input id="adult-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of adult tickets">
-          </div>
-          <div class="flex flex-col w-full space-y-2">
-            <label for="child-tickets" class="text-sm font-semibold">Child Tickets:</label>
-            <input id="child-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of child tickets">
-          </div>
-        </div>
-        <div class="flex space-x-4">
-          <div class="flex flex-col w-full space-y-2">
-            <label for="foreigner-tickets" class="text-sm font-semibold">Foreigner Tickets:</label>
-            <input id="foreigner-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of foreigner tickets">
-          </div>
-          <div class="flex flex-col w-full space-y-2">
-            <label for="foreigner-child-tickets" class="text-sm font-semibold">Foreigner Child Tickets:</label>
-            <input id="foreigner-child-tickets" type="number" min="0" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter number of foreigner child tickets">
-          </div>
-        </div>
-      </div>
-  
-      <!-- Museum Selection -->
-      <div class="relative">
-        <label class="text-lg font-semibold">Select Museum:</label>
-        <div class="overflow-x-auto no-scrollbar flex space-x-3 py-4">
-          <!-- Museum Cards -->
-           {% for i in result %}
-              <div class="card w-64 h-40 bg-gray-200 rounded-lg p-3 flex-shrink-0 cursor-pointer" onclick='selectMuseum("{{i['name']}}")'>
-                <h3 class="text-lg font-bold mb-2">{{i['name']|title}}</h3>
-                <p class="text-gray-700 text-sm">{{i['type']|title}} Museum</p>
-              </div>
-           {% endfor %}
+      <!-- Form Container with Flexbox -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <!-- Museum Selection Label -->
+        <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 sm:w-1/3">Select a Museum:</label>
+    
+        <!-- Search Bar -->
+        <div class="relative sm:w-2/3 w-full">
+          <input 
+            type="text" 
+            id="search" 
+            oninput="filterCards()" 
+            class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            placeholder="Search by museum name"
+          />
         </div>
       </div>
       
-      <!-- Date of Visit -->
-      <div id="visit-date-container" class="flex flex-col space-y-2" style="display:none;">
-        <label for="visit-date" class="text-lg font-semibold">Date of Visit:</label>
-        <input id="visit-date" type="date" min="{{date1}}" max="{{date2}}" class="p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <!-- Museum Selection Cards -->
+      <div class="relative">
+        <div id="museum-cards" class="overflow-x-auto no-scrollbar flex space-x-3 py-4">
+          <!-- Museum Cards with Background Image and Text Overlay -->
+          {% for i in result %}
+            <div 
+              class="card w-64 h-40 bg-gray-200 rounded-lg flex-shrink-0 cursor-pointer relative overflow-hidden" 
+              style="background-image: url('{{url_for('static', filename='images/hh.jpg')}}'); background-size: cover; background-position: center;"
+              data-name="{{i['name']|lower}}"
+            >
+              <!-- Overlay to darken the background image for better text contrast -->
+              <div class="absolute inset-0 bg-black opacity-50"></div>
+      
+              <!-- Text over the image -->
+              <div class="relative z-10 p-4">
+                <h3 class="text-lg font-bold text-white mb-2">{{i['name']|title}}</h3>
+                <p class="text-gray-200 text-sm">{{i['type']|title}} Museum</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
       </div>
-  
+      <div id="visit-date-container">
+        <label for="visit-date">Select Visit Date:</label>
+        <input type="text" id="visit-date" name="visit-date">
+      </div>
+    
       <!-- Submit Button -->
       <div class="text-center">
         <button onclick="tuggler()" type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" id="book-now-btn" disabled>
@@ -130,6 +131,7 @@
         </button>
       </div>
     </form>
+    
   </div>
   <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg" id="set" style="display:none">
     <h2 class="text-2xl font-bold text-center mb-6">Adjust Settings</h2>
