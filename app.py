@@ -5,6 +5,11 @@ import pymysql
 from datetime import timedelta, date
 from dateutil.relativedelta import relativedelta
 import random
+import googletrans
+import autocorrect
+
+
+translator = googletrans.Translator()
 
 # Load responses from a JSON file
 with open('responses.json') as f:
@@ -30,7 +35,7 @@ global debugging_option
 debugging_option = True
 
 # Load Rasa NLU model
-interpreter = Interpreter.load("nlu-20240916-001455//nlu")
+interpreter = Interpreter.load("nlu-20240916-001455\\nlu")
 
 app = Flask(__name__)
 app.secret_key = 'Bro life is good'
@@ -99,17 +104,23 @@ def ticketbook():
 def bot_msg():
     data = request.get_json()
     msg = data.get('message')
-    botresp = interpreter.parse(msg)
+    detected = translator.detect(msg)
+    new = translator.translate(msg, dest="en")
+    botresp = interpreter.parse(new.text)
     bot_response, bot_function = respond(botresp)
     a = botresp.get('intent')
     print(a)
+    p = bot_response
+    print(detected.lang)
+    bot_response = translator.translate(bot_response,dest=f"{detected.lang}").text
+    print(bot_response)
     if (not bot_function):
         bot_function = "No function assigned"
-    sending_response = "<strong>Intent: </strong>" + a.get('name') + "<br>" + "<strong>Confidence: </strong>" + str(a.get('confidence')) + "<br>" + "<strong>Response: </strong>" +  bot_response + "<br>" + "<strong>Function: </strong>" + bot_function
+    sending_response = "<strong>Intent: </strong>" + str(a.get('name')) + "<br>" + "<strong>Confidence: </strong>" + str(a.get('confidence')) + "<br>" + "<strong>Response: </strong>" + str(bot_response) + "<br>" + "<strong>Function: </strong>" + str(bot_function)
     if debugging_option==True:
         return jsonify({'response': sending_response})
     else:
-        return jsonify({'response': bot_response, 'function': bot_function})
+        return jsonify({'response': str(bot_response), 'function': bot_function})
 
 def respond(data):
     session.permanent = True
