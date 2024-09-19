@@ -6,10 +6,11 @@ from datetime import timedelta, date
 from dateutil.relativedelta import relativedelta
 import random
 import googletrans
-import autocorrect
+from autocorrect import Speller
 
 
 translator = googletrans.Translator()
+spell = Speller()
 
 # Load responses from a JSON file
 with open('responses.json') as f:
@@ -35,7 +36,7 @@ global debugging_option
 debugging_option = True
 
 # Load Rasa NLU model
-interpreter = Interpreter.load("nlu-20240916-001455\\nlu")
+interpreter = Interpreter.load("nlu-20240916-001455//nlu")
 
 app = Flask(__name__)
 app.secret_key = 'Bro life is good'
@@ -106,7 +107,8 @@ def bot_msg():
     msg = data.get('message')
     detected = translator.detect(msg)
     new = translator.translate(msg, dest="en")
-    botresp = interpreter.parse(new.text)
+    spelled = spell(new.text)
+    botresp = interpreter.parse(spelled)
     bot_response, bot_function = respond(botresp)
     a = botresp.get('intent')
     print(a)
