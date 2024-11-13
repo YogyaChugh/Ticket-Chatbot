@@ -33,7 +33,7 @@ connection = pymysql.connect(
 cursor = connection.cursor()
 
 global debugging_option
-debugging_option = True
+debugging_option = False
 
 # Load Rasa NLU model
 interpreter = Interpreter.load("nlu-20240916-001455//nlu")
